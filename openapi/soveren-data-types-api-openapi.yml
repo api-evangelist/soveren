@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: Soveren Object Assets Data Types API
+  version: v1
+  description: 'The Soveren Object API exposes the data-security inventory Soveren discovers across your Kubernetes / cloud environment: clusters, assets (services and workloads), endpoints, detected data types, and the data flows between them, plus data-store inventories for S3, Kafka, and SQL databases. Read-only. Authenticate with a bearer token generated in the Soveren app under Integrations. This specification was reconstructed faithfully from Soveren''s published Object API reference (https://docs.soveren.io/en/stable/integration/api/ref/); response schemas are modeled as generic objects where the reference does not publish field-level detail.'
+  x-apisjson-generated: '2026-07-21'
+  x-apisjson-method: searched
+  x-apisjson-source: https://docs.soveren.io/en/stable/integration/api/ref/
+servers:
+- url: https://api.soveren.io
+  description: Soveren Object API production host
+security:
+- bearerAuth: []
+tags:
+- name: Data Types
+paths:
+  /api/v1/data-types:
+    get:
+      operationId: get-data-types
+      summary: List detected data types
+      description: Returns the catalog of sensitive data types Soveren has detected across the environment.
+      tags:
+      - Data Types
+      responses:
+        '200':
+          $ref: '#/components/responses/ObjectList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid bearer token.
+    ObjectList:
+      description: A paginated list of objects.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token generated in the Soveren app under Integrations - External API.

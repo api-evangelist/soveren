@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: Soveren Object Assets SQL DB API
+  version: v1
+  description: 'The Soveren Object API exposes the data-security inventory Soveren discovers across your Kubernetes / cloud environment: clusters, assets (services and workloads), endpoints, detected data types, and the data flows between them, plus data-store inventories for S3, Kafka, and SQL databases. Read-only. Authenticate with a bearer token generated in the Soveren app under Integrations. This specification was reconstructed faithfully from Soveren''s published Object API reference (https://docs.soveren.io/en/stable/integration/api/ref/); response schemas are modeled as generic objects where the reference does not publish field-level detail.'
+  x-apisjson-generated: '2026-07-21'
+  x-apisjson-method: searched
+  x-apisjson-source: https://docs.soveren.io/en/stable/integration/api/ref/
+servers:
+- url: https://api.soveren.io
+  description: Soveren Object API production host
+security:
+- bearerAuth: []
+tags:
+- name: SQL DB
+paths:
+  /api/v1/sql-db/instances:
+    get:
+      operationId: list-sqldb-instances
+      summary: List SQL database instances
+      tags:
+      - SQL DB
+      parameters:
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObjectList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /api/v1/sql-db/instances/{id}:
+    get:
+      operationId: get-sqldb-instance
+      summary: Get a SQL database instance
+      tags:
+      - SQL DB
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Object'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/sql-db/databases:
+    get:
+      operationId: list-sqldb-databases
+      summary: List SQL databases
+      tags:
+      - SQL DB
+      parameters:
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/limit'
+      - name: instance_id
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/ObjectList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /api/v1/sql-db/databases/{id}:
+    get:
+      operationId: get-sqldb-database
+      summary: Get a SQL database
+      tags:
+      - SQL DB
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Object'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/sql-db/databases/{id}/tables:
+    get:
+      operationId: list-sqldb-tables
+      summary: List tables in a SQL database
+      tags:
+      - SQL DB
+      parameters:
+      - $ref: '#/components/parameters/id'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObjectList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid bearer token.
+    Object:
+      description: A single object.
+      content:
+        application/json:
+          schema:
+            type: object
+    NotFound:
+      description: The requested object was not found.
+    ObjectList:
+      description: A paginated list of objects.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+  parameters:
+    offset:
+      name: offset
+      in: query
+      description: Number of items to skip for pagination.
+      schema:
+        type: integer
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token generated in the Soveren app under Integrations - External API.
