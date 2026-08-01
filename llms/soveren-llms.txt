@@ -1,0 +1,29 @@
+# Soveren
+
+> Soveren is a unified Data Security Posture Management (DSPM) and Data Detection and Response (DDR) platform providing real-time data observability for Kubernetes and cloud environments. It combines at-rest data detection with eBPF-based network traffic analysis to discover sensitive data, map data flows, detect misconfigurations, and audit compliance (PCI DSS, GDPR, CPRA).
+
+## APIs
+
+- [Object API reference](https://docs.soveren.io/en/stable/integration/api/ref/): Read-only REST API (bearer auth) over discovered clusters, assets, endpoints, data types, data flows, and S3/Kafka/SQL data stores. Base URL https://api.soveren.io.
+
+## Specs
+
+- [OpenAPI (reconstructed)](openapi/soveren-object-api-openapi.yml): 18 GET operations for the Object API.
+- [AsyncAPI - events/webhooks](asyncapi/soveren-events-asyncapi.yml): 30 event types across 4 categories, HMAC-SHA-256 signed.
+
+## Docs
+
+- [Documentation](https://docs.soveren.io/en/stable/)
+- [Quick start](https://docs.soveren.io/en/stable/)
+- [Integration overview](https://docs.soveren.io/en/stable/integration/)
+- [Webhooks](https://docs.soveren.io/en/stable/integration/webhook/)
+- [Event objects](https://docs.soveren.io/en/stable/integration/event-objects/)
+- [Architecture](https://docs.soveren.io/en/stable/architecture/overview/)
+
+## Company
+
+- [Website](https://soveren.io)
+- [Blog](https://soveren.io/blog)
+- [Sign up](https://app.soveren.io/sign-up)
+- [Privacy Policy](https://soveren.io/privacy-policy)
+- [Security by Design](https://soveren.io/security-by-design)

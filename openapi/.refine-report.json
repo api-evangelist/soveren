@@ -1,0 +1,24 @@
+{
+  "provider": "soveren",
+  "sources": [
+    "soveren-assets-api-openapi.yml",
+    "soveren-data-types-api-openapi.yml",
+    "soveren-endpoints-api-openapi.yml",
+    "soveren-kafka-api-openapi.yml",
+    "soveren-s3-api-openapi.yml",
+    "soveren-sql-db-api-openapi.yml"
+  ],
+  "outputs": [
+    "soveren-assets-api-openapi.yml",
+    "soveren-data-types-api-openapi.yml",
+    "soveren-endpoints-api-openapi.yml",
+    "soveren-kafka-api-openapi.yml",
+    "soveren-s3-api-openapi.yml",
+    "soveren-sql-db-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

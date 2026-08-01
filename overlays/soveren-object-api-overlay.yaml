@@ -1,0 +1,18 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Soveren Object API
+  version: 1.0.0
+extends: openapi/soveren-object-api-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-21'
+      x-apievangelist-notes: >-
+        Read-only data-security inventory API. Reconstructed from the published
+        Object API reference; response schemas modeled generically where the
+        reference omits field-level detail.
+  - target: $.info
+    update:
+      x-apievangelist-events: asyncapi/soveren-events-asyncapi.yml
+      x-apievangelist-conventions: conventions/soveren-conventions.yml
+      x-apievangelist-data-model: data-model/soveren-data-model.yml

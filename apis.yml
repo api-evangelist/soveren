@@ -1,8 +1,28 @@
 aid: soveren
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/soveren.png
 name: Soveren
-description: 'Soveren is a company surfaced as a portfolio company of northzone and added to the API Evangelist
-  network as a stub for enrichment. Sector: infra-devtools. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  Soveren is a unified Data Security Posture Management (DSPM) and Data Detection
+  and Response (DDR) platform that delivers real-time data observability for
+  Kubernetes and cloud environments. It combines at-rest data detection with
+  eBPF-based network traffic analysis to discover sensitive assets, map the data
+  flows between services, detect misconfigurations (public or unencrypted S3
+  buckets, unencrypted RDS/network), and audit compliance posture against PCI DSS,
+  GDPR, and CPRA. Soveren exposes a read-only Object API over the discovered
+  inventory and an outbound webhook event surface for automation. A portfolio
+  company of Northzone.
 url: https://raw.githubusercontent.com/api-evangelist/soveren/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,11 +32,90 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Infra Devtools
-apis: []
+- Data Security
+- DSPM
+- DDR
+- Data Privacy
+- Kubernetes
+- Compliance
+- Security
+apis:
+- aid: soveren:soveren-assets-api
+  name: Soveren Assets API
+  description: The Assets API from Soveren — 4 operation(s) for assets.
+  humanURL: https://docs.soveren.io/en/stable/integration/api/ref/
+  baseURL: https://api.soveren.io
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/soveren-assets-api-openapi.yml
+  - type: APIReference
+    url: https://docs.soveren.io/en/stable/integration/api/ref/
+- aid: soveren:soveren-data-types-api
+  name: Soveren Data Types API
+  description: The Data Types API from Soveren — 1 operation(s) for data types.
+  humanURL: https://docs.soveren.io/en/stable/integration/api/ref/
+  baseURL: https://api.soveren.io
+  tags:
+  - Data Types
+  properties:
+  - type: OpenAPI
+    url: openapi/soveren-data-types-api-openapi.yml
+  - type: APIReference
+    url: https://docs.soveren.io/en/stable/integration/api/ref/
+- aid: soveren:soveren-endpoints-api
+  name: Soveren Endpoints API
+  description: The Endpoints API from Soveren — 2 operation(s) for endpoints.
+  humanURL: https://docs.soveren.io/en/stable/integration/api/ref/
+  baseURL: https://api.soveren.io
+  tags:
+  - Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/soveren-endpoints-api-openapi.yml
+  - type: APIReference
+    url: https://docs.soveren.io/en/stable/integration/api/ref/
+- aid: soveren:soveren-kafka-api
+  name: Soveren Kafka API
+  description: The Kafka API from Soveren — 4 operation(s) for kafka.
+  humanURL: https://docs.soveren.io/en/stable/integration/api/ref/
+  baseURL: https://api.soveren.io
+  tags:
+  - Kafka
+  properties:
+  - type: OpenAPI
+    url: openapi/soveren-kafka-api-openapi.yml
+  - type: APIReference
+    url: https://docs.soveren.io/en/stable/integration/api/ref/
+- aid: soveren:soveren-s3-api
+  name: Soveren S3 API
+  description: The S3 API from Soveren — 2 operation(s) for s3.
+  humanURL: https://docs.soveren.io/en/stable/integration/api/ref/
+  baseURL: https://api.soveren.io
+  tags:
+  - S3
+  properties:
+  - type: OpenAPI
+    url: openapi/soveren-s3-api-openapi.yml
+  - type: APIReference
+    url: https://docs.soveren.io/en/stable/integration/api/ref/
+- aid: soveren:soveren-sql-db-api
+  name: Soveren SQL DB API
+  description: The SQL DB API from Soveren — 5 operation(s) for sql db.
+  humanURL: https://docs.soveren.io/en/stable/integration/api/ref/
+  baseURL: https://api.soveren.io
+  tags:
+  - SQL DB
+  properties:
+  - type: OpenAPI
+    url: openapi/soveren-sql-db-api-openapi.yml
+  - type: APIReference
+    url: https://docs.soveren.io/en/stable/integration/api/ref/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +124,56 @@ maintainers:
 common:
 - type: Website
   url: https://soveren.io
+- type: DeveloperPortal
+  url: https://docs.soveren.io/en/stable/
+- type: Documentation
+  url: https://docs.soveren.io/en/stable/
+- type: APIReference
+  url: https://docs.soveren.io/en/stable/integration/api/ref/
+- type: GettingStarted
+  url: https://docs.soveren.io/en/stable/
+- type: Blog
+  url: https://soveren.io/blog
+- type: SignUp
+  url: https://app.soveren.io/sign-up
+- type: Support
+  url: https://soveren.io/get-a-demo
+- type: PrivacyPolicy
+  url: https://soveren.io/privacy-policy
+- type: TermsOfService
+  url: https://assets.website-files.com/60ebf6ae3b0fe3c5e739324f/60ebf6ae3b0fe306a53933ce_Soveren_Website_Terms_of_Use_20102020.pdf
+- type: OpenAPI
+  url: openapi/soveren-object-api-openapi.yml
+- type: AsyncAPI
+  url: asyncapi/soveren-events-asyncapi.yml
+- type: Webhooks
+  url: asyncapi/soveren-webhooks.yml
+- type: Authentication
+  url: authentication/soveren-authentication.yml
+- type: Conventions
+  url: conventions/soveren-conventions.yml
+- type: ErrorCatalog
+  url: errors/soveren-problem-types.yml
+- type: DataModel
+  url: data-model/soveren-data-model.yml
+- type: Conformance
+  url: conformance/soveren-conformance.yml
+- type: Lifecycle
+  url: lifecycle/soveren-lifecycle.yml
+- type: MCPServer
+  url: mcp/soveren-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/soveren-agentic-access.yml
+- type: LLMsTxt
+  url: llms/soveren-llms.txt
+- type: Overlay
+  url: overlays/soveren-object-api-overlay.yaml
+- type: DomainSecurity
+  url: security/soveren-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1

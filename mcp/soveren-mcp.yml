@@ -1,0 +1,66 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/soveren-object-api-openapi.yml
+note: >-
+  No official Soveren MCP server was found. This is a candidate tool list derived
+  one-to-one from the read-only Object API operations, for building an MCP wrapper
+  over Soveren's data-security inventory.
+server:
+  name: soveren
+  transport: http
+tools:
+  - name: get_data_types
+    description: List detected sensitive data types across the environment.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-data-types
+  - name: get_clusters
+    description: List Kubernetes clusters where Soveren sensors are deployed.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-clusters
+  - name: get_assets
+    description: List discovered assets (services/workloads), filterable by cluster and namespace.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-assets
+  - name: get_asset
+    description: Get a single asset by id.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-asset
+  - name: get_asset_data_flows
+    description: List data flows for an asset.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-asset-data-flows
+  - name: get_asset_endpoints
+    description: List endpoints for an asset.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-asset-endpoints
+  - name: get_endpoint
+    description: Get a single endpoint by id.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-endpoint
+  - name: list_s3_buckets
+    description: List discovered S3 buckets.
+    source_operation: openapi/soveren-object-api-openapi.yml#list-s3-buckets
+  - name: get_s3_bucket
+    description: Get a single S3 bucket by id.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-s3-bucket
+  - name: list_kafka_instances
+    description: List Kafka instances.
+    source_operation: openapi/soveren-object-api-openapi.yml#list-kafka-instances
+  - name: get_kafka_instance
+    description: Get a single Kafka instance by id.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-kafka-instance
+  - name: list_kafka_topics
+    description: List Kafka topics.
+    source_operation: openapi/soveren-object-api-openapi.yml#list-kafka-topics
+  - name: get_kafka_topic
+    description: Get a single Kafka topic by id.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-kafka-topic
+  - name: list_sqldb_instances
+    description: List SQL database instances.
+    source_operation: openapi/soveren-object-api-openapi.yml#list-sqldb-instances
+  - name: get_sqldb_instance
+    description: Get a single SQL database instance by id.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-sqldb-instance
+  - name: list_sqldb_databases
+    description: List SQL databases.
+    source_operation: openapi/soveren-object-api-openapi.yml#list-sqldb-databases
+  - name: get_sqldb_database
+    description: Get a single SQL database by id.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-sqldb-database
+  - name: list_sqldb_tables
+    description: List tables in a SQL database.
+    source_operation: openapi/soveren-object-api-openapi.yml#list-sqldb-tables

@@ -1,0 +1,13 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/soveren-object-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Bearer token generated in the Soveren app under Integrations - External API.
+  sources:
+  - openapi/soveren-object-api-openapi.yml

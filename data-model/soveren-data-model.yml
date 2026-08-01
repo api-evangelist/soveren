@@ -1,0 +1,66 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/soveren-object-api-openapi.yml
+description: >-
+  Entity-relationship graph derived from the Soveren Object API operations and the
+  published object model (clusters, assets, endpoints, data types, data flows, and
+  data-store inventories for S3, Kafka, and SQL databases).
+entities:
+  - name: Cluster
+    description: A Kubernetes cluster where Soveren sensors are deployed.
+    operations: [get-clusters]
+  - name: Asset
+    description: A discovered service or workload within a cluster.
+    operations: [get-assets, get-asset]
+  - name: Endpoint
+    description: A hostname / method / URL combination discovered on an asset.
+    operations: [get-endpoint, get-asset-endpoints]
+  - name: DataFlow
+    description: A flow of data (sender/receiver + data types) between assets.
+    operations: [get-asset-data-flows]
+  - name: DataType
+    description: A sensitive data type detected across services.
+    operations: [get-data-types]
+  - name: S3Bucket
+    description: A discovered S3 bucket data store.
+    operations: [list-s3-buckets, get-s3-bucket]
+  - name: KafkaInstance
+    description: A discovered Kafka instance.
+    operations: [list-kafka-instances, get-kafka-instance]
+  - name: KafkaTopic
+    description: A topic within a Kafka instance.
+    operations: [list-kafka-topics, get-kafka-topic]
+  - name: SqlDbInstance
+    description: A discovered SQL database instance.
+    operations: [list-sqldb-instances, get-sqldb-instance]
+  - name: SqlDatabase
+    description: A database within a SQL instance.
+    operations: [list-sqldb-databases, get-sqldb-database]
+  - name: SqlTable
+    description: A table within a SQL database.
+    operations: [list-sqldb-tables]
+relationships:
+  - from: Cluster
+    to: Asset
+    type: has_many
+    via: cluster_id
+  - from: Asset
+    to: Endpoint
+    type: has_many
+    via: asset id (/assets/{id}/endpoints)
+  - from: Asset
+    to: DataFlow
+    type: has_many
+    via: asset id (/assets/{id}/data-flows)
+  - from: KafkaInstance
+    to: KafkaTopic
+    type: has_many
+    via: instance_id
+  - from: SqlDbInstance
+    to: SqlDatabase
+    type: has_many
+    via: instance_id
+  - from: SqlDatabase
+    to: SqlTable
+    type: has_many
+    via: database id (/sql-db/databases/{id}/tables)

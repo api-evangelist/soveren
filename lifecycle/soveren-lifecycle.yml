@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/soveren-object-api-openapi.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  example: /api/v1/assets
+  docs: https://docs.soveren.io/en/stable/integration/api/ref/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation/Sunset policy was found.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []
+release_signals:
+  note: >-
+    Soveren emits `dar_release_update`, `dar_release_update_critical`,
+    `dim_release_update`, and `dim_release_update_critical` webhook events for
+    detector/product release updates (see asyncapi/soveren-webhooks.yml).

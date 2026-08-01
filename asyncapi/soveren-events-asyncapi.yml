@@ -1,0 +1,123 @@
+asyncapi: 3.0.0
+info:
+  title: Soveren Events (Webhooks)
+  version: '1.0'
+  description: >-
+    Soveren delivers data-security events to a subscriber endpoint via outbound
+    webhooks. Soveren POSTs an event object to a URL configured in the app under
+    Integrations - Webhook. When a signing token is configured, the request body
+    is signed with HMAC-SHA-256 and the signature is delivered in the
+    `x-soveren-signature` header as `sha256=<hash>`. Requests use the
+    `SoverenWebhook/1.0` user agent. Events fall into four categories:
+    infrastructure updates, data at risk, misconfiguration, and other.
+    Reconstructed from https://docs.soveren.io/en/stable/integration/webhook/ and
+    https://docs.soveren.io/en/stable/integration/event-objects/.
+  x-apisjson-generated: '2026-07-21'
+  x-apisjson-method: searched
+  x-apisjson-source: https://docs.soveren.io/en/stable/integration/event-objects/
+defaultContentType: application/json
+servers:
+  subscriber:
+    host: your-endpoint.example.com
+    protocol: https
+    description: The subscriber-hosted HTTPS endpoint Soveren delivers events to.
+channels:
+  events:
+    address: /
+    description: The subscriber webhook endpoint that receives Soveren event objects.
+    messages:
+      SoverenEvent:
+        $ref: '#/components/messages/SoverenEvent'
+operations:
+  receiveEvent:
+    action: receive
+    channel:
+      $ref: '#/channels/events'
+    summary: Receive a Soveren event object.
+    bindings:
+      http:
+        method: POST
+    messages:
+      - $ref: '#/channels/events/messages/SoverenEvent'
+components:
+  messages:
+    SoverenEvent:
+      name: SoverenEvent
+      title: Soveren event object
+      contentType: application/json
+      headers:
+        type: object
+        properties:
+          x-soveren-signature:
+            type: string
+            description: HMAC-SHA-256 signature of the body, formatted `sha256=<hash>`. Present when a signing token is configured.
+          User-Agent:
+            type: string
+            const: SoverenWebhook/1.0
+      payload:
+        $ref: '#/components/schemas/Event'
+  schemas:
+    Event:
+      type: object
+      required: [title, time, category, event_type, event_link]
+      properties:
+        title: { type: string }
+        time: { type: string, format: date-time }
+        category:
+          type: string
+          enum: [infrastructure_updates, data_at_risk, misconfiguration, other]
+        event_type:
+          type: string
+          description: One of the 30 documented event types.
+          enum:
+            - 3rd_party_policy_violation
+            - anomaly_detected
+            - excessive_db_access
+            - policy_violation
+            - policy_violation_dar
+            - custom_asset_rule_conflict
+            - email_clustered
+            - new_data_type
+            - new_external_receiver
+            - new_internal_receiver
+            - new_internal_sender
+            - new_potential_data_storage
+            - new_data_storage
+            - started_storing_data
+            - started_storing_datatype
+            - updated_enduser_receiver
+            - updated_external_receiver
+            - updated_internal_receiver
+            - updated_internal_sender
+            - updated_robot_receiver
+            - policy_public_s3_bucket
+            - policy_unencrypted_network
+            - policy_unencrypted_rds
+            - policy_unencrypted_s3_bucket
+            - dar_release_update
+            - dar_release_update_critical
+            - dim_release_update
+            - dim_release_update_critical
+            - discovery_complete
+        event_link: { type: string, format: uri }
+        release_notes_link: { type: string, format: uri }
+        sensitivity: { type: string }
+        data_types: { type: array, items: { type: string } }
+        event_triggered_by: { type: string }
+        sending: { type: object }
+        receiving: { type: object }
+        endpoint: { type: string }
+        evidence_link: { type: string, format: uri }
+        policy: { type: string }
+        conflicting_assets: { type: array, items: { type: string } }
+        third_party_ip: { type: string }
+        user_agent: { type: string }
+        object_type: { type: string }
+        entity_name: { type: string }
+        s3_bucket: { type: string }
+        database_type: { type: string }
+        database_name: { type: string }
+        table: { type: string }
+        collection: { type: string }
+        topic: { type: string }
+        scheme: { type: string }

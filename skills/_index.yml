@@ -1,0 +1,11 @@
+generated: '2026-07-21'
+method: generated
+skills:
+  - file: soveren-inventory-sensitive-data.md
+    name: Inventory sensitive data across the environment
+    api: openapi/soveren-object-api-openapi.yml
+    operations: [get-data-types, get-clusters, get-assets, get-asset, get-asset-data-flows]
+  - file: soveren-audit-datastores.md
+    name: Audit S3, Kafka, and SQL data stores
+    api: openapi/soveren-object-api-openapi.yml
+    operations: [list-s3-buckets, get-s3-bucket, list-kafka-instances, list-kafka-topics, list-sqldb-instances, list-sqldb-databases, list-sqldb-tables]

@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.soveren.io/en/stable/integration/api/ref/
+authentication:
+  style: http-bearer
+  header: 'Authorization: Bearer <token>'
+  token_source: Soveren app - Integrations - External API
+  ref: authentication/soveren-authentication.yml
+pagination:
+  style: offset-limit
+  params:
+    limit: Maximum number of items to return.
+    offset: Number of items to skip.
+  applies_to: list operations (assets, data-flows, endpoints, s3 buckets, kafka instances/topics, sql-db instances/databases/tables)
+versioning:
+  scheme: uri-path
+  current: v1
+  example: /api/v1/assets
+idempotency:
+  supported: false
+  note: The Object API is read-only (GET only); no idempotency-key contract is published.
+events:
+  transport: outbound-webhook
+  signing: HMAC-SHA-256 in x-soveren-signature header (sha256=<hash>)
+  ref: asyncapi/soveren-webhooks.yml
+error_envelope:
+  ref: errors/soveren-problem-types.yml
+  note: Documented reference does not publish a field-level error envelope; standard HTTP status semantics apply (401 unauthorized, 404 not found).

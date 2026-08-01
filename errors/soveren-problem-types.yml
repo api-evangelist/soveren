@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/soveren-object-api-openapi.yml
+format: http-status
+note: >-
+  Soveren's Object API reference does not publish an RFC 9457 problem+json error
+  catalog. These entries are derived from the documented bearer authentication and
+  resource-by-id operations; standard HTTP status semantics apply.
+problems:
+  - status: 401
+    title: Unauthorized
+    description: Missing or invalid bearer token.
+    remediation: 'Provide a valid `Authorization: Bearer <token>` header using a token generated in the Soveren app under Integrations - External API.'
+    source_operation: openapi/soveren-object-api-openapi.yml#get-assets
+  - status: 404
+    title: Not Found
+    description: The requested object (asset, endpoint, bucket, instance, database, etc.) does not exist.
+    remediation: Verify the object id; list the parent collection first to obtain valid ids.
+    source_operation: openapi/soveren-object-api-openapi.yml#get-asset
