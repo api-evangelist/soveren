@@ -143,7 +143,7 @@ common:
 - type: TermsOfService
   url: https://assets.website-files.com/60ebf6ae3b0fe3c5e739324f/60ebf6ae3b0fe306a53933ce_Soveren_Website_Terms_of_Use_20102020.pdf
 - type: OpenAPI
-  url: openapi/soveren-object-api-openapi.yml
+  url: openapi/_original/soveren-object-api-openapi.yml
 - type: AsyncAPI
   url: asyncapi/soveren-events-asyncapi.yml
 - type: Webhooks
