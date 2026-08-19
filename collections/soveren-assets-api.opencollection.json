@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Soveren Object Assets API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/clusters"
+          },
+          "docs": "Returns the Kubernetes clusters where Soveren sensors are deployed."
+        },
+        {
+          "info": {
+            "name": "List assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/assets",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination."
+              },
+              {
+                "name": "cluster_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns discovered assets (services and workloads), optionally filtered by cluster and namespace."
+        },
+        {
+          "info": {
+            "name": "Get an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/assets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an asset"
+        },
+        {
+          "info": {
+            "name": "List data flows for an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/assets/:id/data-flows",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns the data flows (senders/receivers and the data types moving between them) for a given asset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

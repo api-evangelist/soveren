@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Soveren Object Assets Kafka API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Kafka",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Kafka instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/kafka/instances",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              }
+            ]
+          },
+          "docs": "List Kafka instances"
+        },
+        {
+          "info": {
+            "name": "Get a Kafka instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/kafka/instances/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Kafka instance"
+        },
+        {
+          "info": {
+            "name": "List Kafka topics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/kafka/topics",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "instance_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Kafka topics"
+        },
+        {
+          "info": {
+            "name": "Get a Kafka topic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/kafka/topics/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Kafka topic"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

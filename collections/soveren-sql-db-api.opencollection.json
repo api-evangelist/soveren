@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Soveren Object Assets SQL DB API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SQL DB",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List SQL database instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/sql-db/instances",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              }
+            ]
+          },
+          "docs": "List SQL database instances"
+        },
+        {
+          "info": {
+            "name": "Get a SQL database instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/sql-db/instances/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a SQL database instance"
+        },
+        {
+          "info": {
+            "name": "List SQL databases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/sql-db/databases",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "instance_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List SQL databases"
+        },
+        {
+          "info": {
+            "name": "Get a SQL database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/sql-db/databases/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a SQL database"
+        },
+        {
+          "info": {
+            "name": "List tables in a SQL database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/sql-db/databases/:id/tables",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination."
+              }
+            ]
+          },
+          "docs": "List tables in a SQL database"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

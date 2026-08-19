@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Soveren Object Assets S3 API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "S3",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List S3 buckets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/s3/buckets",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List S3 buckets"
+        },
+        {
+          "info": {
+            "name": "Get an S3 bucket",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/s3/buckets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an S3 bucket"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

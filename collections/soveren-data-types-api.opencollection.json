@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Soveren Object Assets Data Types API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List detected data types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.soveren.io/api/v1/data-types"
+          },
+          "docs": "Returns the catalog of sensitive data types Soveren has detected across the environment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
