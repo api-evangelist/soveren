@@ -73,7 +73,8 @@ apis:
   description: The Endpoints API from Soveren — 2 operation(s) for endpoints.
   humanURL: https://docs.soveren.io/en/stable/integration/api/ref/
   baseURL: https://api.soveren.io
-  tags:
+  tags: []
+  tags_raw:
   - Endpoints
   properties:
   - type: OpenAPI
