@@ -1,12 +1,7 @@
 {
   "provider": "soveren",
   "sources": [
-    "soveren-assets-api-openapi.yml",
-    "soveren-data-types-api-openapi.yml",
-    "soveren-endpoints-api-openapi.yml",
-    "soveren-kafka-api-openapi.yml",
-    "soveren-s3-api-openapi.yml",
-    "soveren-sql-db-api-openapi.yml"
+    "_original/soveren-object-api-openapi.yml"
   ],
   "outputs": [
     "soveren-assets-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "soveren-object-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "soveren-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "soveren-data-types-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "soveren-endpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "soveren-kafka-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "soveren-s3-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "soveren-sql-db-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

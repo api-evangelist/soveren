@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Soveren Object Assets SQL DB API
+  title: Soveren Object SQL DB API
   version: v1
-  description: 'The Soveren Object API exposes the data-security inventory Soveren discovers across your Kubernetes / cloud environment: clusters, assets (services and workloads), endpoints, detected data types, and the data flows between them, plus data-store inventories for S3, Kafka, and SQL databases. Read-only. Authenticate with a bearer token generated in the Soveren app under Integrations. This specification was reconstructed faithfully from Soveren''s published Object API reference (https://docs.soveren.io/en/stable/integration/api/ref/); response schemas are modeled as generic objects where the reference does not publish field-level detail.'
+  description: 'The Soveren Object API exposes the data-security inventory Soveren discovers across your Kubernetes / cloud environment: clusters, assets (services and workloads), endpoints, detected data types, and the data flows between them, plus data-store inventories for S3, Kafka, and SQL databases.'
   x-apisjson-generated: '2026-07-21'
   x-apisjson-method: searched
   x-apisjson-source: https://docs.soveren.io/en/stable/integration/api/ref/
@@ -95,16 +95,14 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    Unauthorized:
-      description: Missing or invalid bearer token.
     Object:
       description: A single object.
       content:
         application/json:
           schema:
             type: object
-    NotFound:
-      description: The requested object was not found.
+    Unauthorized:
+      description: Missing or invalid bearer token.
     ObjectList:
       description: A paginated list of objects.
       content:
@@ -116,13 +114,9 @@ components:
                 type: array
                 items:
                   type: object
+    NotFound:
+      description: The requested object was not found.
   parameters:
-    offset:
-      name: offset
-      in: query
-      description: Number of items to skip for pagination.
-      schema:
-        type: integer
     limit:
       name: limit
       in: query
@@ -135,6 +129,12 @@ components:
       required: true
       schema:
         type: string
+    offset:
+      name: offset
+      in: query
+      description: Number of items to skip for pagination.
+      schema:
+        type: integer
   securitySchemes:
     bearerAuth:
       type: http
