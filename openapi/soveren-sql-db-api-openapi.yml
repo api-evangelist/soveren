@@ -123,18 +123,18 @@ components:
       description: Maximum number of items to return.
       schema:
         type: integer
-    id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
     offset:
       name: offset
       in: query
       description: Number of items to skip for pagination.
       schema:
         type: integer
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
