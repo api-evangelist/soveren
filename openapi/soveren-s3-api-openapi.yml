@@ -49,14 +49,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    Object:
-      description: A single object.
-      content:
-        application/json:
-          schema:
-            type: object
-    Unauthorized:
-      description: Missing or invalid bearer token.
     ObjectList:
       description: A paginated list of objects.
       content:
@@ -68,19 +60,27 @@ components:
                 type: array
                 items:
                   type: object
+    Object:
+      description: A single object.
+      content:
+        application/json:
+          schema:
+            type: object
     NotFound:
       description: The requested object was not found.
+    Unauthorized:
+      description: Missing or invalid bearer token.
   parameters:
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of items to return.
-      schema:
-        type: integer
     offset:
       name: offset
       in: query
       description: Number of items to skip for pagination.
+      schema:
+        type: integer
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
       schema:
         type: integer
     id:
