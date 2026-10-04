@@ -83,7 +83,35 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    Object:
+      description: A single object.
+      content:
+        application/json:
+          schema:
+            type: object
+    ObjectList:
+      description: A paginated list of objects.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+    Unauthorized:
+      description: Missing or invalid bearer token.
+    NotFound:
+      description: The requested object was not found.
   parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
     offset:
       name: offset
       in: query
@@ -96,34 +124,6 @@ components:
       description: Maximum number of items to return.
       schema:
         type: integer
-    id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-  responses:
-    ObjectList:
-      description: A paginated list of objects.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  type: object
-    Object:
-      description: A single object.
-      content:
-        application/json:
-          schema:
-            type: object
-    NotFound:
-      description: The requested object was not found.
-    Unauthorized:
-      description: Missing or invalid bearer token.
   securitySchemes:
     bearerAuth:
       type: http
