@@ -64,6 +64,141 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Soveren is a company surfaced as a portfolio company of northzone and added to the API Evangelist network as a stub for enrichment. Sector: infra-devtools. This profile is a lead awaiting the enrichment pipeline.
+Soveren is a unified Data Security Posture Management (DSPM) and Data Detection and Response (DDR) platform that delivers real-time data observability for Kubernetes and cloud environments. It combines at-rest data detection with eBPF-based network traffic analysis to discover sensitive assets, map the data flows between services, detect misconfigurations (public or unencrypted S3 buckets, unencrypted RDS/network), and audit compliance posture against PCI DSS, GDPR, and CPRA. Soveren exposes a read-only Object API over the discovered inventory and an outbound webhook event surface for automation. A portfolio company of Northzone.
 
-Backed by: northzone — https://soveren.io
+**Areas:** Company · Infra Devtools · Data Security · DSPM · DDR · Privacy · Kubernetes · Compliance · Security
+
+## Soveren on APIs.io
+
+Everything profiled for Soveren is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/soveren/](https://apis.io/providers/soveren/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [Soveren Assets API](https://apis.io/apis/soveren/soveren-assets-api/) — The Assets API from Soveren — 4 operation(s) for assets.
+- [Soveren Data Types API](https://apis.io/apis/soveren/soveren-data-types-api/) — The Data Types API from Soveren — 1 operation(s) for data types.
+- [Soveren Endpoints API](https://apis.io/apis/soveren/soveren-endpoints-api/) — The Endpoints API from Soveren — 2 operation(s) for endpoints.
+- [Soveren Kafka API](https://apis.io/apis/soveren/soveren-kafka-api/) — The Kafka API from Soveren — 4 operation(s) for kafka.
+- [Soveren S3 API](https://apis.io/apis/soveren/soveren-s3-api/) — The S3 API from Soveren — 2 operation(s) for s3.
+- [Soveren SQL DB API](https://apis.io/apis/soveren/soveren-sql-db-api/) — The SQL DB API from Soveren — 5 operation(s) for sql db.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (2)
+
+Event-driven and webhook contracts.
+
+- [Soveren Events (Webhooks)](https://apis.io/asyncapis/soveren/soveren-events-asyncapi/)
+- [Soveren Webhooks](https://apis.io/asyncapis/soveren/soveren-webhooks/)
+
+#### Event channels (1)
+
+Individual events and webhooks the provider emits.
+
+- [/](https://apis.io/channels/soveren/events/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [soveren](https://apis.io/servers/soveren/soveren/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Soveren Agentic Access](https://apis.io/agentic-access/soveren/soveren-agentic-access/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Soveren Object Assets API](https://apis.io/collections/soveren/open-soveren-assets-api/)
+- [Soveren Object Assets Data Types API](https://apis.io/collections/soveren/open-soveren-data-types-api/)
+- [Soveren Object Assets Endpoints API](https://apis.io/collections/soveren/open-soveren-endpoints-api/)
+- [Soveren Object Assets Kafka API](https://apis.io/collections/soveren/open-soveren-kafka-api/)
+- [Soveren Object Assets S3 API](https://apis.io/collections/soveren/open-soveren-s3-api/)
+- [Soveren Object Assets SQL DB API](https://apis.io/collections/soveren/open-soveren-sql-db-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Soveren Object Api Overlay](https://apis.io/overlays/soveren/soveren-object-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Soveren Authentication](https://apis.io/security/soveren/soveren-authentication/)
+- [Soveren Domain Security](https://apis.io/security/soveren/soveren-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://soveren.io)
+- [Documentation](https://docs.soveren.io/en/stable/)
+- [Getting started](https://docs.soveren.io/en/stable/)
+- [API reference](https://docs.soveren.io/en/stable/integration/api/ref/)
+- [Sign up](https://app.soveren.io/sign-up)
+- [Support](https://soveren.io/get-a-demo)
+- [Blog](https://soveren.io/blog)
+- [Terms of service](https://assets.website-files.com/60ebf6ae3b0fe3c5e739324f/60ebf6ae3b0fe306a53933ce_Soveren_Website_Terms_of_Use_20102020.pdf)
+- [Privacy policy](https://soveren.io/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 39.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 53.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 21.1 |
+
+**Agent readiness 29.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/soveren/](https://apis.io/providers/soveren/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Soveren: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/soveren/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
